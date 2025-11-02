@@ -4,7 +4,7 @@ Complete Three-Method Analysis: SHAP vs SHAP+ vs Q-SHAP+
 Optimized Quantum Training with Gradient-based Adam Optimizer
 ================================================================================
 
-Author: Parth Sanghadia
+Author: Pranav Sanghadia
 Email: psanghadia@captechu.edu
 Institution: Capitol Technology University
 Date: October 2025

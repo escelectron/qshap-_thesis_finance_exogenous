@@ -5,7 +5,7 @@ Optimized Quantum Training with Gradient-based Adam Optimizer
 FULLY GENERIC VERSION - Configurable Data Loading & Binarization
 ================================================================================
 
-Author: Parth Sanghadia
+Author: Pranav Sanghadia
 Email: psanghadia@captechu.edu
 Institution: Capitol Technology University
 Date: October 2025
