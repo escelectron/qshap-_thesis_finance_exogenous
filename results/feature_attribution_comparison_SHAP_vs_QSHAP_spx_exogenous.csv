@@ -1,0 +1,6 @@
+Feature,SHAP,Q-SHAP+
+Gold_Close,0.1656,0.109
+DXY,0.1564,0.0807
+Sunspot,0.0421,0.089
+Kp,0.0,0.0142
+Quake_Count,0.0391,0.133

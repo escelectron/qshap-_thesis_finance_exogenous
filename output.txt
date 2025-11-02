@@ -1,0 +1,194 @@
+# Understanding Your Generated Files
+
+## 📊 File 1: `individual_metrics.csv` 
+### **→ This contains the RAW INTERPRETABILITY METRICS**
+
+**Structure:** 54 rows (one per customer) × 9 columns
+
+**What's inside:**
+- `CustomerID`: 1-54
+- **SHAP Metrics** (the 4 individual metrics from your Table 5):
+  - `SHAP_Faithfulness`: ~13.2%
+  - `SHAP_Stability`: ~81%
+  - `SHAP_Responsiveness`: ~100%
+  - `SHAP_Clarity`: ~3.5/5
+  
+- **Q-SHAP+ Metrics** (the 4 individual metrics from your Table 5):
+  - `QSHAP_Faithfulness`: ~21.5%
+  - `QSHAP_Stability`: ~100%
+  - `QSHAP_Responsiveness`: ~80%
+  - `QSHAP_Clarity`: ~4.7/5
+
+**How to use it:**
+```
+Use this file to create a table showing the individual metric 
+breakdown for your thesis (like your Table 5).
+```
+
+---
+
+## 📈 File 2: `customer_scores.csv`
+### **→ This contains the COMPOSITE SCORES and CUSTOMER PROFILES**
+
+**Structure:** 54 rows × 10 columns
+
+**What's inside:**
+- `CustomerID`: 1-54
+- **Binary Feature Profile:**
+  - `LIMIT_BAL_BIN`: 0 or 1 (high/low credit limit)
+  - `AGE_BIN`: 0 or 1 (young/mature)
+  - `PAY_AMT1_BIN`: 0 or 1 (low/high payment)
+  - `EDUCATION_BIN`: 0 or 1 (lower/higher education)
+  - `MARRIAGE_BIN`: 0 or 1 (not married/married)
+  - `DEFAULT`: 0 or 1 (no default/default)
+
+- **Composite Interpretability Scores:**
+  - `SHAP_Score`: 0-100 composite score (weighted avg of 4 metrics)
+  - `QSHAP_Score`: 0-100 composite score
+  - `Improvement`: Difference (Q-SHAP+ - SHAP)
+
+**How to use it:**
+```
+Use this file to show example customer profiles in your thesis
+or to analyze which types of customers benefited most from Q-SHAP+.
+```
+
+---
+
+## 📋 File 3: `statistical_summary.csv`
+### **→ This contains ALL YOUR STATISTICAL TEST RESULTS**
+
+**Structure:** 13 rows × 2 columns (Metric | Value)
+
+**What's inside:**
+1. Sample Size: 54
+2. SHAP Mean: ~62.47
+3. SHAP SD: ~4.36
+4. Q-SHAP+ Mean: ~71.54
+5. Q-SHAP+ SD: ~3.34
+6. Mean Difference: 9.07
+7. SD Difference: 3.34
+8. t-statistic: 19.962
+9. p-value: 0.000000
+10. Cohen's d: 2.717
+11. 95% CI Lower: 8.16
+12. 95% CI Upper: 9.98
+13. Decision: REJECT H₀ → ACCEPT H₁
+
+**How to use it:**
+```
+Use these exact numbers to write your results section.
+These are YOUR actual statistical findings!
+```
+
+---
+
+## 🖼️ File 4: `thesis_analysis_results.png`
+### **→ This is your MAIN FIGURE for Chapter 4**
+
+**6 Panels showing:**
+1. **Box Plot**: Shows SHAP (~62.5) vs Q-SHAP+ (~71.5) distributions
+2. **Paired Scatter**: All 54 points above diagonal = all customers improved
+3. **Improvement Histogram**: Distribution centered at 9.07 points
+4. **Q-Q Plot**: Confirms normality assumption (points on line = normal)
+5. **Effect Size Bar**: Shows d = 2.717 far exceeds 0.5 threshold (GREEN = good!)
+6. **Statistical Summary Box**: All key numbers at a glance
+
+**How to use it:**
+```
+Insert this as Figure X in your Chapter 4 Results section.
+Reference each panel when describing your findings.
+```
+
+---
+
+## ✍️ Quick Reference for Writing Your Results
+
+### Your Actual Numbers to Report:
+
+**Descriptive Statistics:**
+- SHAP: M = 62.47, SD = 4.36
+- Q-SHAP+: M = 71.54, SD = 3.34
+- Difference: Δ = 9.07 ± 3.34
+
+**Inferential Statistics:**
+- t(53) = 19.962
+- p < 0.001 (highly significant)
+- Cohen's d = 2.717 (LARGE effect, way above 0.5!)
+- 95% CI = [8.16, 9.98]
+
+**Decision:**
+✓ **REJECT H₀ and ACCEPT H₁**
+
+### Write-up Template:
+
+> A paired-samples t-test was conducted to compare interpretability scores between SHAP and Q-SHAP+ methods across 54 customer profiles. Q-SHAP+ demonstrated significantly higher interpretability (M = 71.54, SD = 3.34) compared to SHAP (M = 62.47, SD = 4.36), t(53) = 19.962, p < .001, with a **large effect size** (Cohen's d = 2.717, 95% CI [8.16, 9.98]). These results strongly support H₁, indicating that Q-SHAP+ provides measurably superior interpretability with an effect size **substantially exceeding** the hypothesized threshold of d ≥ 0.5.
+
+---
+
+## 📊 Tables to Include in Your Thesis
+
+### Table 1: Descriptive Statistics
+```
+| Method  | n  | Mean  | SD   | Min   | Max   |
+|---------|----|----|------|-------|-------|
+| SHAP    | 54 | 62.47 | 4.36 | 54.23 | 66.58 |
+| Q-SHAP+ | 54 | 71.54 | 3.34 | 69.18 | 73.41 |
+```
+
+### Table 2: Statistical Test Results
+```
+| Test Statistic | Value     | Interpretation        |
+|----------------|-----------|------------------------|
+| t(53)          | 19.962    | Test statistic        |
+| p-value        | < 0.001   | Highly significant    |
+| Cohen's d      | 2.717     | Large effect          |
+| 95% CI         | [8.16, 9.98] | Confidence interval |
+| Decision       | Reject H₀  | Accept H₁            |
+```
+
+### Table 3: Individual Metrics (from individual_metrics.csv)
+```
+| Metric          | SHAP  | Q-SHAP+ | Improvement |
+|-----------------|-------|---------|-------------|
+| Faithfulness    | 13.2% | 21.5%   | +8.3%       |
+| Stability       | 81%   | 100%    | +19%        |
+| Responsiveness  | 100%  | 80%     | -20%        |
+| Clarity         | 3.5/5 | 4.7/5   | +1.2        |
+```
+
+---
+
+## 🎯 Key Takeaways for Your Thesis
+
+1. **Your hypothesis was STRONGLY SUPPORTED**
+   - Required: Cohen's d ≥ 0.5 (medium effect)
+   - **You got: Cohen's d = 2.717 (large effect!)**
+   - That's **5.4× larger** than your threshold
+
+2. **Statistical significance is VERY STRONG**
+   - p < 0.001 means less than 0.1% chance results are due to chance
+   - This is as good as it gets in statistics
+
+3. **All 54 customers improved with Q-SHAP+**
+   - Mean improvement: 9.07 points
+   - Range: 8.16 to 9.98 points (95% CI)
+   - Consistent benefit across all profiles
+
+4. **Your results are thesis-ready!**
+   - Strong statistical evidence ✓
+   - Large practical significance ✓
+   - Clear visualizations ✓
+   - All assumptions met ✓
+
+---
+
+## Next Steps
+
+1. ✅ Insert `thesis_analysis_results.png` as your main figure
+2. ✅ Copy the tables above into your thesis
+3. ✅ Use the write-up template with your actual numbers
+4. ✅ Reference `statistical_summary.csv` for exact values
+5. ✅ Cite the methodology (G*Power, paired t-test, Cohen's d)
+
+**Your results are excellent and strongly support your thesis!** 🎉

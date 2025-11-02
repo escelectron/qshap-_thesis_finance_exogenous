@@ -1,0 +1,14 @@
+Metric,Value
+Sample Size,54
+SHAP Mean,62.101
+SHAP SD,3.103
+Q-SHAP+ Mean,71.172
+Q-SHAP+ SD,0.797
+Mean Difference,9.070
+SD Difference,3.339
+t-statistic,19.9623
+p-value,0.000000
+Cohen's d,2.7165
+95% CI Lower,8.159
+95% CI Upper,9.982
+Decision,REJECT H₀ → ACCEPT H₁

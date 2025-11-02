@@ -1,0 +1,5 @@
+Quantum Effect,Measurement,Interpretation
+Feature Entanglement Strength,1.0,Maximum quantum correlation between feature pairs
+Gold_Close–Gold_Close Entanglement,1.0,Strongest entangled feature pair (auto-detected)
+Sunspot–Kp Entanglement,0.252,Selected feature pair quantum coupling
+Sunspot Interference,1.179,Quantum superposition effects in feature 2
